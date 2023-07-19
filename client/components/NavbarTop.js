@@ -48,7 +48,7 @@ const NavbarTop = (prop) => {
    return (
     <nav style={navStyles}>
       <div style={leftStyles}>
-        <Link href="/" style={logoStyles}  > <MdOutlinePix/> E-Shop  </Link>
+        <a href="/" style={logoStyles}  > <MdOutlinePix/> E-Shop  </a>
       </div>
 
       {
@@ -64,7 +64,7 @@ const NavbarTop = (prop) => {
         {
           prop.name ? 
           <div className='d-flex'>
-            <Link href="/cart" style={linkStyles}> <MdOutlineShoppingCart style={{fontSize: "120%"}}/> </Link>
+            <a href="/cart" style={linkStyles}> <MdOutlineShoppingCart style={{fontSize: "120%"}}/> </a>
             <Dropdown>
               <Dropdown.Toggle variant="dark">
                 <MdOutlinePerson style={{marginRight: '5%'}} />
