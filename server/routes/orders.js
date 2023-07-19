@@ -1,0 +1,51 @@
+const router = require('express').Router();
+let Order = require('../models/order');
+
+router.route('/').get( (req, res) => {
+    Order.find()
+        .then(orders => res.json(orders))
+        .catch(err => res.status(400).json(err));
+});
+
+router.route('/:id').get((req, res) => {
+	Order.findById(req.params.id)
+	  .then(order => res.json(order))
+	  .catch(err => res.status(400).json('Error: ' + err));
+});
+
+router.route('/placeorder').post( async (req, res) => {
+    const name = req.body.name;
+    const description = req.body.description;
+    const image = req.body.image;
+    const category = req.body.category;
+    const rating = Number(req.body.rating);
+    const price = Number(req.body.price);
+    const newProduct = new Product({name, description, image, category, rating, price});
+    newProduct.save()
+        .then( () => res.json('Product Added!'))
+        .catch(err => res.status(400).json(err));
+});
+
+router.route('/remove/:id').delete((req, res) => {
+    Product.findByIdAndDelete(req.params.id)
+      .then(() => res.json('Product deleted!'))
+      .catch(err => res.status(400).json('Error: ' + err));
+});
+
+router.route('/edit/:id').put((req, res) => {
+    Product.findById(req.params.id)
+      .then((product) => {
+        product.name = req.body.name;
+        product.description = req.body.description;
+        product.price = Number(req.body.price);
+        product.image = req.body.image;
+        product.category = req.body.category;
+        product.rating = Number(req.body.rating);
+
+        product.save()
+          .then(() => res.json("Product updated!"))
+          .catch(err => res.json(err));
+      })
+});
+
+module.exports = router;
