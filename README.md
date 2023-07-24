@@ -2,6 +2,35 @@
 E-Shop is an e-commerce platform made with Next.js as the frontend framework, Express and Node as the backend, and MongoDB for the database.
 
 
+
+## Demo
+
+#### Homepage
+![alt text](./demo-ss/HomepageNotSigned.png)
+
+#### Admin Page
+![alt text](./demo-ss/AdminLogin.png)
+![alt text](./demo-ss/AddProduct.png)
+
+#### Login and SignUp
+![alt text](./demo-ss/Login.png)
+![alt text](./demo-ss/Register.png)
+
+#### Edit Profile
+![alt text](./demo-ss/EditProfile.png)
+
+#### Categories, Sorting and Searching
+![alt text](./demo-ss/Sorted.png)
+![alt text](./demo-ss/Search.png)
+
+#### Cart
+![alt text](./demo-ss/Cart.png)
+
+#### Order History
+![alt text](./demo-ss/OrderHistory.png)
+
+
+
 ## Installation
 
 #### Clone the project
