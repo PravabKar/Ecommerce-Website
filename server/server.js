@@ -23,11 +23,12 @@ mongoose
 
 const usersRouter = require('./routes/users');
 const productsRouter = require('./routes/products');
+const ordersRouter = require('./routes/orders');
 
 
 app.use('/users', usersRouter);
 app.use('/products', productsRouter);
-
+app.use('/order', ordersRouter);
 
 app.listen(port, () => {
     console.log('listening on port : ' + port);

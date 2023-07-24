@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react'
 import axios from 'axios';
+import Swal from 'sweetalert2';
 const jwt = require('jsonwebtoken')
 
 
@@ -14,10 +15,10 @@ const Login = () => {
     const submitHandler = (e) => {
       e.preventDefault();
       if(!email){
-        alert("Please enter your email");
+        Swal.fire("Please enter your email");
       }
       else if(!password){
-        alert("Please enter your password");
+        Swal.fire("Please enter your password");
       }
       else {
 
@@ -30,10 +31,10 @@ const Login = () => {
                   
                   if(res.data.user){
                     localStorage.setItem('token', res.data.user)
-                    alert("Login Sucessfull");
+                    Swal.fire("Login Sucessfull");
                     window.location.href = '/';
                   }else{
-                    alert("Invalid Credentials");
+                    Swal.fire("Invalid Credentials");
                   }
                 }
                 )

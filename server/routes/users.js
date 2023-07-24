@@ -30,6 +30,18 @@ router.route('/register').post( async (req, res) => {
         .catch(err => res.status(400).json(err));
 })
 
+router.route('/edituser/:id').put((req, res) => {
+	User.findById(req.params.id)
+      .then((user) => {
+		user.name = req.body.name;
+		user.email = req.body.email;
+		user.address = req.body.address;
+    	user.save()
+			.then( () => res.json('User Updated!'))
+			.catch(err => res.status(400).json(err));
+	  })
+})
+
 
 router.route('/login').post( async (req, res) => {
 	const user = await User.findOne({

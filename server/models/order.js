@@ -7,12 +7,17 @@ const orderSchema = new Schema({
     required: true,
     trim: true
   },
+  product_id: {
+    type: String,
+    required: true,
+    trim: true
+  },
   product_name: {
     type: String,
     required: true,
     trim: true
   },
-  product_id: {
+  product_image: {
     type: String,
     required: true,
     trim: true
@@ -22,15 +27,14 @@ const orderSchema = new Schema({
     required: true,
     trim: true
   },
-  order_status: {
-    type: String,
+  order_price: {
+    type: Number,
     required: true,
     trim: true
   },
-  order_price: {
-    type: String,
-    required: true,
-    trim: true
+  order_completed: {
+    type: Boolean,
+    required: true
   }
 },{
   timestamps: true,

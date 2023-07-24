@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.css'
 import Swal from 'sweetalert2';
-import ProductAdd from '../../components/productAdd';
+import ProductAdd from '../components/productAdd';
 
 
-const login = () => {
+const admin = () => {
 
   const [isSignedIn, setSignedIn] = useState(false);
   const [email, setEmail] = useState("");
@@ -42,7 +42,7 @@ const login = () => {
 
                 <div className="card card-primary  col-4  col d-flex justify-content-center">
                 <div className="card-header card bg-primary ">
-                    <h3 className="card-title text-white" >Login</h3>
+                    <h3 className="card-title text-white" >Admin Login</h3>
                 </div>
                 <form onSubmit={submitHandler}>
                 <div className="card-body">
@@ -67,4 +67,4 @@ const login = () => {
   )
 }
 
-export default login
+export default admin

@@ -13,39 +13,49 @@ router.route('/:id').get((req, res) => {
 	  .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/placeorder').post( async (req, res) => {
-    const name = req.body.name;
-    const description = req.body.description;
-    const image = req.body.image;
-    const category = req.body.category;
-    const rating = Number(req.body.rating);
-    const price = Number(req.body.price);
-    const newProduct = new Product({name, description, image, category, rating, price});
-    newProduct.save()
-        .then( () => res.json('Product Added!'))
+router.route('/addtocart').post( async (req, res) => {
+    const user_id = req.body.user_id;
+    const product_id = req.body.product_id;
+    const product_name = req.body.product_name;
+    const product_image = req.body.product_image;
+    const order_address = req.body.order_address;
+    const order_price = Number(req.body.order_price);
+    const order_completed = Boolean(false);
+    const newOrder = new Order({user_id, product_id, product_name, product_image, order_address, order_price, order_completed});
+    newOrder.save()
+        .then( () => res.json('Added to Cart!'))
         .catch(err => res.status(400).json(err));
 });
 
-router.route('/remove/:id').delete((req, res) => {
-    Product.findByIdAndDelete(req.params.id)
-      .then(() => res.json('Product deleted!'))
+router.route('/removefromcart/:id').delete((req, res) => {
+    Order.findByIdAndDelete(req.params.id)
+      .then(() => res.json('Product removed from Cart!'))
       .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/edit/:id').put((req, res) => {
-    Product.findById(req.params.id)
-      .then((product) => {
-        product.name = req.body.name;
-        product.description = req.body.description;
-        product.price = Number(req.body.price);
-        product.image = req.body.image;
-        product.category = req.body.category;
-        product.rating = Number(req.body.rating);
+router.route('/placeorder/:id').put((req, res) => {
+    Order.findById(req.params.id)
+      .then((order) => {
+        order.order_address = req.body.order_address;
+        // order.order_price = Number(req.body.order_price);
+        order.order_completed = Boolean(true);
 
-        product.save()
-          .then(() => res.json("Product updated!"))
+        order.save()
+          .then(() => res.json("Order Placed!"))
           .catch(err => res.json(err));
       })
+});
+
+router.route('/cart/:id').get((req, res) => {
+  Order.find( {"user_id": req.params.id } ).find({"order_completed": false})
+	  .then(order => res.json(order))
+	  .catch(err => res.status(400).json('Error: ' + err));
+});
+
+router.route('/history/:id').get((req, res) => {
+  Order.find( {"user_id": req.params.id } ).find({"order_completed": true})
+	  .then(order => res.json(order))
+	  .catch(err => res.status(400).json('Error: ' + err));
 });
 
 module.exports = router;

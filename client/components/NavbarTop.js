@@ -11,6 +11,7 @@ import { useEffect, useState } from 'react';
 
 const NavbarTop = (prop) => {
 
+  const [search, setSearch] = useState('');
 
   useEffect(() => {
   },[])
@@ -54,8 +55,8 @@ const NavbarTop = (prop) => {
       {
         !prop.hide ?
         <div style={centerStyles}>
-          <input className='form-control' type="search" placeholder="Search for Products" style={searchStyles} />
-          <button className='btn btn-warning' style={searchButtonStyles}> <MdOutlineSearch/> </button>
+          <input className='form-control' type="search" placeholder="Search for Products" style={searchStyles} value={prop.searchValue} onChange={(e) => prop.setSearchValue(e.target.value)}/>
+          <button className='btn btn-warning' style={searchButtonStyles} onClick={prop.searchData}> <MdOutlineSearch/> </button>
         </div>:
         <></>
       }

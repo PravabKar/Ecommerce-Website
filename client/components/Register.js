@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.css'
+import Swal from 'sweetalert2';
 
 
 const register = () => {
@@ -16,17 +17,16 @@ const register = () => {
       const user = {
         name, email, password, address
       }
-      // console.log(name, email, password);
 
       axios.post(process.env.serverUrl+'/users/register', user)
       .then(res => {
         console.log(res.data)
         if (res.data === 'User Added!') {
-          alert('User Added');
+          Swal.fire('User Added');
           window.location.href = '/login';
         }
         else {
-          alert('Failed to add user');
+          Swal.fire('Failed to add user');
         }
       })
       .catch(err => console.log(err));
