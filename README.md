@@ -3,44 +3,44 @@ E-Shop is an e-commerce platform made with Next.js as the frontend framework, Ex
 
 
 
-## Demo
+# Demo
 
-#### Homepage
+### Homepage
 ![alt text](./demo-ss/HomepageNotSigned.png)
 
-#### Admin Page
+### Admin Page
 ![alt text](./demo-ss/AdminLogin.png)
 ![alt text](./demo-ss/AddProduct.png)
 
-#### Login and SignUp
+### Login and SignUp
 ![alt text](./demo-ss/Login.png)
 ![alt text](./demo-ss/Register.png)
 
-#### Edit Profile
+### Edit Profile
 ![alt text](./demo-ss/EditProfile.png)
 
-#### Categories, Sorting and Searching
+### Categories, Sorting and Searching
 ![alt text](./demo-ss/Sorted.png)
 ![alt text](./demo-ss/Search.png)
 
-#### Cart
+### Cart
 ![alt text](./demo-ss/Cart.png)
 
-#### Order History
+### Order History
 ![alt text](./demo-ss/OrderHistory.png)
 
 
 
-## Installation
+# Installation
 
-#### Clone the project
+### Clone the project
 
 ```bash
   git clone https://github.com/PravabKar/Ecommerce-Website.git
   cd Ecommerce-Website
 ```
 
-#### Add Enviroment variables
+### Add Enviroment variables
     
 ```bash
   cd server
@@ -54,12 +54,12 @@ E-Shop is an e-commerce platform made with Next.js as the frontend framework, Ex
 (If setting PORT anything other than 9999, then change client/next.config.js port number as well)
 
 
-#### Run server (make sure you have node installed)
+### Run server (make sure you have node installed)
 ```bash
   node server
 ```
 
-#### Install the project with npm
+### Install the project with npm
 (From another terminal)
 ```bash
   cd client
@@ -67,14 +67,14 @@ E-Shop is an e-commerce platform made with Next.js as the frontend framework, Ex
   npm install next@12.3.2
 ```
 
-#### To run in Devlopement build
+### To run in Devlopement build
 
 ```bash
   npm run dev
 ```
 
 OR
-#### To run in Production build
+### To run in Production build
 
 ```bash
   npm run build
